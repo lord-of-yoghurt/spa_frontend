@@ -3,7 +3,7 @@
 import React from 'react'
 
 const Root = () => (
-  <div>Hello React Hot Loader!</div>
+  <div>OH HAI!!!</div>
 )
 
 export default Root

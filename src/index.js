@@ -21,6 +21,3 @@ render(Root)
 if (module.hot) {
   module.hot.accept()
 }
-
-
-React.render(<App />, document.getElementById('app'));

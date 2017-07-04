@@ -16,6 +16,6 @@ module.exports = {
       "jsx-quotes": 1,
       "react/jsx-no-undef": 1,
       "react/jsx-uses-react": 1,
-      "react/jsx-uses-vars": 1
+      "react/jsx-uses-vars": 1,
     }
 }
