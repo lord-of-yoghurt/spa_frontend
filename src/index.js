@@ -6,17 +6,12 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
 import Root from './containers/Root'
+import App from './App'
 
-const render = Component => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    document.getElementById('root')
-  )
-}
-
-render(Root)
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+)
 
 if (module.hot) {
   module.hot.accept()

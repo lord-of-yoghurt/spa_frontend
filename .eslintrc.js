@@ -1,5 +1,8 @@
 module.exports = {
     "extends": "eslint:recommended",
+    "globals": {
+      "React": true
+    },
     "env": {
       "browser": true,
       "node": true
@@ -17,5 +20,6 @@ module.exports = {
       "react/jsx-no-undef": 1,
       "react/jsx-uses-react": 1,
       "react/jsx-uses-vars": 1,
+      "no-unused-vars": 0,
     }
 }
