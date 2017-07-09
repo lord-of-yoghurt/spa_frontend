@@ -6,11 +6,10 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
 import Root from './containers/Root'
-import App from './App'
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+  <Root />,
+  document.getElementById('root')
 )
 
 if (module.hot) {

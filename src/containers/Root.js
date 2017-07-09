@@ -2,8 +2,10 @@
 
 import React from 'react'
 
+import App from '../App'
+
 const Root = () => (
-  <div>how you doin sauce boss</div>
+  <App />
 )
 
 export default Root
