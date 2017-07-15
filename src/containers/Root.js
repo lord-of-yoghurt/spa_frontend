@@ -5,13 +5,7 @@ import ReactDOM from 'react-dom'
 
 import App from '../App'
 
-const Root = () => (
-  <App />
-)
-
 ReactDOM.render(
-  <Root />,
+  <App />,
   document.querySelector('.root')
 )
-
-export default Root
