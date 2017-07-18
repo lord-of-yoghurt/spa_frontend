@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Post = () => {
+const Posts = () => {
   const news = [
     { id: 1, name: 'Great news!', description: 'This is an example of great news.' },
     { id: 2, name: 'Okay news', description: 'Nothing out of the ordinary here.' },
@@ -26,4 +26,4 @@ const Post = () => {
   )
 }
 
-export default Post
+export default Posts
