@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class Post extends React.Component {
   render() {
@@ -9,4 +10,10 @@ export default class Post extends React.Component {
       </div>
     )
   }
+}
+
+Post.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string
 }
