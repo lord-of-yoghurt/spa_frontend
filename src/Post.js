@@ -1,11 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-class Post extends React.Component {
+export default class Post extends React.Component {
   render() {
-    return (
-      <div className="Post">News! News! News!</div>
+    return(
+      <div>
+        <h2>News #{this.props.id}</h2>
+        {this.props.name}
+      </div>
     )
   }
 }
 
-export default Post
+Post.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string
+}
