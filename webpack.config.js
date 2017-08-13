@@ -4,6 +4,7 @@ const path = require('path')
 module.exports = {
   entry: {
     'app': [
+      'whatwg-fetch',
       'babel-polyfill',
       'webpack-hot-middleware/client',
       'react-hot-loader/patch',
