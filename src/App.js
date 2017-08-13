@@ -3,7 +3,27 @@ import Post from './Post'
 import PostForm from './PostForm'
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      posts: []
+    }
+  }
+
+  componentDidMount() {
+    // TODO:
+    // fetch('http://localhost:3000/api/posts')
+    //   .then(res => {
+    //     this.posts = res.json()
+    //     console.log(this.posts)
+    //   }).then(json => {
+    //     console.log('JSON retrieved', json)
+    //   }).catch(ex => {
+    //     console.log('JSON not retrieved', ex)
+    //   })
+  }
+  
   render() {
     const posts = [
       { id: 1, name: 'Great news!', description: 'This is an example of great news.' },
