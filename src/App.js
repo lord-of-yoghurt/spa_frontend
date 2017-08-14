@@ -8,22 +8,27 @@ export default class App extends React.Component {
     super(props)
 
     this.state = {
-      posts: []
+      posts: [],
+      error: ''
     }
   }
 
   componentDidMount() {
-    // TODO:
+    // TODO: pass error message to Post component if there is an error
     fetch('http://localhost:3000/api/posts')
       .then(res =>
-        res.json().then(data => ({
+        res.json()
+        .then(data => ({
           data: data
-        })
-      ).then(res => {
+        }))
+      .then(res => {
         this.setState({posts: res.data})
-        console.log(this.state.posts)
+      }))
+      .catch(e => {
+        if (e) {
+          this.setState({error: `Error! ${e.toString}`})
+        }
       })
-    )
   }
 
   render() {
