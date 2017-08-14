@@ -42,13 +42,11 @@ export default class PostForm extends React.Component {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
     })
-    .then(res => {
-      return res.json()
-    })
+    .catch(e => console.log(`There was an error! ${e}`))
     this.handleClearForm(event)
   }
 
