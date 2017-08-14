@@ -49,7 +49,6 @@ export default class PostForm extends React.Component {
     .then(res => {
       return res.json()
     })
-    .then(data => console.log(JSON.stringify(data)))
     this.handleClearForm(event)
   }
 
@@ -60,8 +59,8 @@ export default class PostForm extends React.Component {
         <h3>New Post</h3>
         <form onSubmit={this.handleSubmit}>
           <p>Title: <input name="title" type="text" value={this.state.title} onChange={this.handleChange} /></p>
-          <p>Body: <textarea name="body" value={this.state.body} placeholder={this.state.body} onChange={this.handleChange} /></p>
-          <p>Username: <input name="username" type="text" value={this.state.username} placeholder={this.state.username} onChange={this.handleChange} /></p>
+          <p>Body: <textarea name="body" value={this.state.body} onChange={this.handleChange} /></p>
+          <p>Username: <input name="username" type="text" value={this.state.username} onChange={this.handleChange} /></p>
           <p><input type="submit" value="Yarrr!" /></p>
         </form>
       </div>
