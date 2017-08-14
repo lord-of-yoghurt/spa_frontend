@@ -1,6 +1,7 @@
 import React from 'react'
 import Post from './Post'
 import PostForm from './PostForm'
+import 'whatwg-fetch'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,28 +14,29 @@ export default class App extends React.Component {
 
   componentDidMount() {
     // TODO:
-    // fetch('http://localhost:3000/api/posts')
-    //   .then(res => {
-    //     this.posts = res.json()
-    //     console.log(this.posts)
-    //   }).then(json => {
-    //     console.log('JSON retrieved', json)
-    //   }).catch(ex => {
-    //     console.log('JSON not retrieved', ex)
-    //   })
+    fetch('http://localhost:3000/api/posts')
+      .then(res =>
+        res.json().then(data => ({
+          data: data
+        })
+      ).then(res => {
+        this.setState({posts: res.data})
+        console.log(this.state.posts)
+      })
+    )
   }
-  
-  render() {
-    const posts = [
-      { id: 1, name: 'Great news!', description: 'This is an example of great news.' },
-      { id: 2, name: 'Okay news', description: 'Nothing out of the ordinary here.' },
-      { id: 3, name: 'Bad news', description: 'Well, this just sucks!' }
-    ]
 
+  render() {
     return (
       <div>
-        {posts.map((post) => {
-          return <Post key={post.id} id={post.id} name={post.name} />
+        {this.state.posts.map((post) => {
+          return <Post
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            body={post.body}
+            username={post.username}
+          />
         })}
         <PostForm />
       </div>
