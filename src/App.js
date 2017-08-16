@@ -3,32 +3,56 @@ import Post from './Post'
 import PostForm from './PostForm'
 import 'whatwg-fetch'
 
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000/api'
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      posts: [],
-      error: ''
+      posts: []
     }
+
+    this.addPost = this.addPost.bind(this)
   }
 
   componentDidMount() {
-    // TODO: pass error message to Post component if there is an error
-    fetch('http://localhost:3000/api/posts')
-      .then(res =>
-        res.json()
-        .then(data => ({
-          data: data
-        }))
+    this.getPosts()
+  }
+
+  getPosts() {
+    fetch(`${BASE_URL}/posts`)
       .then(res => {
-        this.setState({posts: res.data})
-      }))
-      .catch(e => {
-        if (e) {
-          this.setState({error: `Error! ${e.toString}`})
-        }
+        return res.json()
       })
+      .then(data => {
+        this.setState({posts: data})
+      })
+      .catch(e => {
+        console.log(`Error! ${e.toString()}`)
+      })
+  }
+
+  addPost(data) {
+    fetch(`${BASE_URL}/posts`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      this.setState({
+        posts: this.state.posts.concat([data])
+      })
+    })
+    .catch(e => {
+      console.log(`There was an error! ${e.toString()}`)
+    })
   }
 
   render() {
@@ -43,7 +67,7 @@ export default class App extends React.Component {
             username={post.username}
           />
         })}
-        <PostForm />
+        <PostForm onPostSubmit={this.addPost} />
       </div>
     )
   }

@@ -11,9 +11,9 @@ export default class PostForm extends React.Component {
       username: ''
     }
 
-    this.handleChange     = this.handleChange.bind(this);
-    this.handleSubmit     = this.handleSubmit.bind(this);
-    this.handleClearForm  = this.handleClearForm.bind(this);
+    this.handleChange     = this.handleChange.bind(this)
+    this.handleSubmit     = this.handleSubmit.bind(this)
+    this.handleClearForm  = this.handleClearForm.bind(this)
   }
 
   handleChange(event) {
@@ -32,21 +32,12 @@ export default class PostForm extends React.Component {
       title: '',
       body: '',
       username: ''
-    }, () => console.log('yay!'))
+    })
   }
 
   handleSubmit(event) {
     event.preventDefault()
-    const payload = this.state
-    fetch('http://localhost:3000/api/posts', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .catch(e => console.log(`There was an error! ${e}`))
+    this.props.onPostSubmit(this.state)
     this.handleClearForm(event)
   }
 
