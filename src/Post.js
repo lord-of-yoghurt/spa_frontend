@@ -5,8 +5,9 @@ export default class Post extends React.Component {
   render() {
     return(
       <div>
-        <h2>News #{this.props.id}</h2>
-        {this.props.name}
+        <h2>{this.props.title}</h2>
+        <p>{this.props.body}</p>
+        <p>Author: {this.props.username}</p>
       </div>
     )
   }
@@ -14,6 +15,7 @@ export default class Post extends React.Component {
 
 Post.propTypes = {
   id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  username: PropTypes.string
 }
