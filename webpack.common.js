@@ -6,8 +6,6 @@ module.exports = {
     'app': [
       'whatwg-fetch',
       'babel-polyfill',
-      'webpack-hot-middleware/client',
-      'react-hot-loader/patch',
       "./src/index.js"
     ],
   },
@@ -15,8 +13,6 @@ module.exports = {
     path: path.join(__dirname, 'public'),
     filename: "index.js",
     publicPath: '/public',
-    hotUpdateChunkFilename: 'hot/hot-update.js',
-    hotUpdateMainFilename: 'hot/hot-update.json'
   },
   module: {
     rules: [
@@ -38,7 +34,7 @@ module.exports = {
     ]
   },
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
   resolve: {
     extensions: ['.js', '.es6']
