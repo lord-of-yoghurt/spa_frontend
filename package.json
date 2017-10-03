@@ -5,7 +5,7 @@
   "main": "entry.js",
   "scripts": {
     "start": "node server.js",
-    "build": "webpack --progress --config webpack.production.config.js"
+    "build": "webpack --progress --config webpack.prod.js"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
@@ -27,10 +27,12 @@
     "react-hot-loader": "^3.0.0-beta.7",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.11.0",
-    "webpack-hot-middleware": "^2.18.0"
+    "webpack-hot-middleware": "^2.18.0",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "babel-runtime": "^6.22.0",
+    "dotenv": "^4.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

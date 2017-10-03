@@ -1,9 +1,11 @@
+import {} from 'dotenv/config'
 import React from 'react'
 import Post from './Post'
 import PostForm from './PostForm'
 import 'whatwg-fetch'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000/api'
+console.log(process.env.BASE_URL)
 
 export default class App extends React.Component {
   constructor(props) {
