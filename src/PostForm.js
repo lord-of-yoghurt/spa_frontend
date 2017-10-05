@@ -45,7 +45,7 @@ export default class PostForm extends React.Component {
     return (
       <div className="PostForm">
         <hr></hr>
-        <h3>New Post</h3>
+        <h3>Submit New Post</h3>
         <form onSubmit={this.handleSubmit}>
           <p>Title: <input name="title" type="text" value={this.state.title} onChange={this.handleChange} /></p>
           <p>Body: <textarea name="body" value={this.state.body} onChange={this.handleChange} /></p>
