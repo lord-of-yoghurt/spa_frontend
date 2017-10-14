@@ -3,7 +3,8 @@ import Post from './Post'
 import PostForm from './PostForm'
 import 'whatwg-fetch'
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000/api'
+const BASE_URL = 'http://localhost:3000/api' // for dev
+// const BASE_URL = process.env.BASE_URL || 'http://localhost:3000/api' // for prod
 
 export default class App extends React.Component {
   constructor(props) {
