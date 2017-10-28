@@ -1,10 +1,11 @@
 import { ADD_POST } from '../actions/PostActions';
 
-export default function(state, action) {
+export default function(state = [], action) {
   switch(action.type) {
     case ADD_POST:
-    console.log('Hello Redux');
-    return state;
+      console.log('Hello Redux');
+      return state;
+    default:
+      return state;
   }
-  return state;
 }

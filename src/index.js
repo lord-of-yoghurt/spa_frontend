@@ -1,14 +1,27 @@
 import 'react-hot-loader/patch'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
-// import configureStore.js somehow
+import { Provider } from 'react-redux'
+
+import configureStore from './store/configureStore'
 
 import App from './App'
-import 
+
+import { addPost } from './actions/PostActions'
+
+const store = configureStore()
+
+const testRedux = () => {
+  store.dispatch(addPost())
+}
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <div>
+      <App />
+      <button onClick={testRedux}>Test</button>
+    </div>
+  </Provider>,
   document.getElementsByClassName('root')[0]
 )
 

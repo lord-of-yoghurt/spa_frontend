@@ -17,6 +17,10 @@ export default class App extends React.Component {
     this.addPost = this.addPost.bind(this)
   }
 
+  testRedux() {
+    console.log('You clicked!')
+  }
+
   componentDidMount() {
     this.getPosts()
   }
