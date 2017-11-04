@@ -11,15 +11,10 @@ import { addPost } from './actions/PostActions'
 
 const store = configureStore()
 
-const testRedux = () => {
-  store.dispatch(addPost())
-}
-
 ReactDOM.render(
   <Provider store={store}>
     <div>
       <App />
-      <button onClick={testRedux}>Test</button>
     </div>
   </Provider>,
   document.getElementsByClassName('root')[0]

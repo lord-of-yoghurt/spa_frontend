@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import Post from './Post'
 import PostForm from './PostForm'
 import 'whatwg-fetch'
+import { addPost } from './actions/PostActions'
 
 const BASE_URL = 'http://localhost:3000/api' // for dev
 // const BASE_URL = process.env.BASE_URL || 'http://localhost:3000/api' // for prod
 
-export default class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props)
 
@@ -63,6 +66,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        <button onClick={() => {this.props.dispatch(addPost())}}>Test Redux</button>
         {this.state.posts.map((post) => {
           return <Post
             key={post.id}
@@ -77,3 +81,5 @@ export default class App extends React.Component {
     )
   }
 }
+
+export default connect()(App);
